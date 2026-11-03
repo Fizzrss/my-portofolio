@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-bm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="50%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+    <filter id="shadow-bm" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="800" height="500" fill="url(#bg-bm)"/>
+
+  <!-- Subtle circles/shapes in background -->
+  <circle cx="150" cy="120" r="140" fill="#22c55e" opacity="0.08"/>
+  <circle cx="680" cy="380" r="160" fill="#0ea5e9" opacity="0.08"/>
+
+  <!-- Mobile Phone Mockup 1 (Primary - Contractor Feed) -->
+  <g filter="url(#shadow-bm)" transform="translate(270, 30)">
+    <!-- Phone Body Frame -->
+    <rect x="0" y="0" width="260" height="440" rx="36" fill="#0f172a" stroke="#334155" stroke-width="4"/>
+    
+    <!-- Screen Area -->
+    <rect x="8" y="8" width="244" height="424" rx="28" fill="#ffffff"/>
+    
+    <!-- Dynamic Island / Speaker notch -->
+    <rect x="90" y="16" width="80" height="18" rx="9" fill="#0f172a"/>
+
+    <!-- App Top Bar -->
+    <rect x="8" y="44" width="244" height="48" fill="#15803d"/>
+    <text x="24" y="74" font-family="sans-serif" font-size="14" fill="#ffffff" font-weight="800">BuildMatch</text>
+    <circle cx="230" cy="68" r="12" fill="#22c55e"/>
+    <text x="227" y="72" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="700">F</text>
+
+    <!-- Contractor Banner Card -->
+    <rect x="20" y="104" width="220" height="70" rx="14" fill="#ecfdf5" stroke="#bbf7d0"/>
+    <text x="32" y="126" font-family="sans-serif" font-size="11" fill="#15803d" font-weight="700">CONTRACTOR PORTAL</text>
+    <text x="32" y="145" font-family="sans-serif" font-size="13" fill="#0f172a" font-weight="800">Find Projects & Bid</text>
+    <text x="32" y="161" font-family="sans-serif" font-size="9" fill="#64748b">Verified by 33 respondents</text>
+
+    <!-- Search Bar -->
+    <rect x="20" y="184" width="220" height="30" rx="10" fill="#f1f5f9"/>
+    <circle cx="34" cy="199" r="4" fill="#94a3b8"/>
+    <text x="44" y="203" font-family="sans-serif" font-size="10" fill="#94a3b8">Search tender, architect...</text>
+
+    <!-- Feed Card 1 -->
+    <rect x="20" y="224" width="220" height="85" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+    <rect x="28" y="232" width="40" height="40" rx="8" fill="#dcfce7"/>
+    <text x="36" y="256" font-family="sans-serif" font-size="14" fill="#16a34a" font-weight="800">villa</text>
+    <text x="76" y="246" font-family="sans-serif" font-size="11" fill="#0f172a" font-weight="700">Modern Tropical Villa</text>
+    <text x="76" y="260" font-family="sans-serif" font-size="9" fill="#64748b">Architect: Ar. Kevin Prasetya</text>
+    <text x="76" y="274" font-family="sans-serif" font-size="10" fill="#15803d" font-weight="800">Est: Rp 450.000.000</text>
+    <rect x="76" y="282" width="70" height="18" rx="6" fill="#16a34a"/>
+    <text x="88" y="294" font-family="sans-serif" font-size="8" fill="#ffffff" font-weight="700">Submit Bid</text>
+
+    <!-- Feed Card 2 -->
+    <rect x="20" y="318" width="220" height="80" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+    <rect x="28" y="326" width="40" height="40" rx="8" fill="#e0f2fe"/>
+    <text x="36" y="350" font-family="sans-serif" font-size="14" fill="#0284c7" font-weight="800">cafe</text>
+    <text x="76" y="340" font-family="sans-serif" font-size="11" fill="#0f172a" font-weight="700">Industrial Coffee Shop</text>
+    <text x="76" y="354" font-family="sans-serif" font-size="9" fill="#64748b">Architect: Studio Reka</text>
+    <text x="76" y="368" font-family="sans-serif" font-size="10" fill="#0369a1" font-weight="800">Est: Rp 180.000.000</text>
+
+    <!-- Bottom Navigation Bar -->
+    <rect x="8" y="396" width="244" height="36" fill="#f8fafc"/>
+    <circle cx="50" cy="414" r="5" fill="#16a34a"/>
+    <circle cx="100" cy="414" r="5" fill="#cbd5e1"/>
+    <circle cx="150" cy="414" r="5" fill="#cbd5e1"/>
+    <circle cx="200" cy="414" r="5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- Left Accent Floating Badge -->
+  <g filter="url(#shadow-bm)" transform="translate(100, 160)">
+    <rect width="140" height="70" rx="16" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="16" y="26" font-family="sans-serif" font-size="9" fill="#15803d" font-weight="700">RESEARCH DATA</text>
+    <text x="16" y="48" font-family="sans-serif" font-size="18" fill="#0f172a" font-weight="800">33 Users</text>
+    <text x="16" y="60" font-family="sans-serif" font-size="8" fill="#64748b">Validated Usability</text>
+  </g>
+
+  <!-- Right Accent Floating Badge -->
+  <g filter="url(#shadow-bm)" transform="translate(560, 240)">
+    <rect width="140" height="70" rx="16" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="16" y="26" font-family="sans-serif" font-size="9" fill="#15803d" font-weight="700">TECH STACK</text>
+    <text x="16" y="48" font-family="sans-serif" font-size="16" fill="#0f172a" font-weight="800">Flutter + BaaS</text>
+    <text x="16" y="60" font-family="sans-serif" font-size="8" fill="#64748b">Supabase Realtime</text>
+  </g>
+</svg>
+

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="50%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1e293b" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  
+  <!-- Canvas Background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <!-- Subtle Grid pattern -->
+  <g opacity="0.15" stroke="#3b82f6" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Browser Window Mockup -->
+  <g filter="url(#shadow)">
+    <!-- Browser Frame -->
+    <rect x="70" y="55" width="660" height="420" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    
+    <!-- Window Header -->
+    <path d="M 70 71 A 16 16 0 0 1 86 55 L 714 55 A 16 16 0 0 1 730 71 L 730 96 L 70 96 Z" fill="#f8fafc"/>
+    <line x1="70" y1="96" x2="730" y2="96" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Window Controls -->
+    <circle cx="95" cy="76" r="5" fill="#f87171"/>
+    <circle cx="112" cy="76" r="5" fill="#fbbf24"/>
+    <circle cx="129" cy="76" r="5" fill="#34d399"/>
+    
+    <!-- Address Bar -->
+    <rect x="155" y="65" width="340" height="22" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+    <circle cx="170" cy="76" r="3" fill="#3b82f6"/>
+    <text x="182" y="80" font-family="monospace" font-size="11" fill="#64748b" font-weight="600">rentalbase.app/dashboard</text>
+
+    <!-- App Sidebar -->
+    <rect x="70" y="96" width="140" height="379" fill="#f1f5f9"/>
+    <line x1="210" y1="96" x2="210" y2="475" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Sidebar Items -->
+    <rect x="85" y="120" width="110" height="28" rx="8" fill="#3b82f6"/>
+    <rect x="95" y="130" width="60" height="8" rx="4" fill="#ffffff"/>
+    
+    <rect x="85" y="160" width="110" height="24" rx="6" fill="transparent"/>
+    <rect x="95" y="168" width="70" height="8" rx="4" fill="#94a3b8"/>
+    
+    <rect x="85" y="194" width="110" height="24" rx="6" fill="transparent"/>
+    <rect x="95" y="202" width="55" height="8" rx="4" fill="#94a3b8"/>
+
+    <rect x="85" y="228" width="110" height="24" rx="6" fill="transparent"/>
+    <rect x="95" y="236" width="65" height="8" rx="4" fill="#94a3b8"/>
+
+    <!-- App Content Area -->
+    <!-- Content Header -->
+    <text x="235" y="138" font-family="sans-serif" font-size="18" fill="#0f172a" font-weight="800">RentalBase Dashboard</text>
+    <text x="235" y="156" font-family="sans-serif" font-size="11" fill="#64748b">Multi-Tenant Equipment Rental Management</text>
+
+    <!-- Stat Cards -->
+    <g>
+      <rect x="235" y="175" width="150" height="75" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+      <text x="250" y="200" font-family="sans-serif" font-size="10" fill="#3b82f6" font-weight="700">TOTAL ASSETS</text>
+      <text x="250" y="232" font-family="sans-serif" font-size="22" fill="#1e3a8a" font-weight="800">148 Units</text>
+      
+      <rect x="400" y="175" width="150" height="75" rx="12" fill="#ecfdf5" stroke="#a7f3d0"/>
+      <text x="415" y="200" font-family="sans-serif" font-size="10" fill="#059669" font-weight="700">ACTIVE RENTALS</text>
+      <text x="415" y="232" font-family="sans-serif" font-size="22" fill="#064e3b" font-weight="800">42 Active</text>
+
+      <rect x="565" y="175" width="140" height="75" rx="12" fill="#fdf4ff" stroke="#f5d0fe"/>
+      <text x="580" y="200" font-family="sans-serif" font-size="10" fill="#a21caf" font-weight="700">TENANTS</text>
+      <text x="580" y="232" font-family="sans-serif" font-size="22" fill="#701a75" font-weight="800">12 Vendors</text>
+    </g>
+
+    <!-- Table/List Mockup -->
+    <rect x="235" y="270" width="470" height="185" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+    <path d="M 235 282 A 12 12 0 0 1 247 270 L 693 270 A 12 12 0 0 1 705 282 L 705 305 L 235 305 Z" fill="#f8fafc"/>
+    <line x1="235" y1="305" x2="705" y2="305" stroke="#e2e8f0"/>
+    <text x="250" y="293" font-family="sans-serif" font-size="10" fill="#64748b" font-weight="700">EQUIPMENT ITEM</text>
+    <text x="420" y="293" font-family="sans-serif" font-size="10" fill="#64748b" font-weight="700">TENANT</text>
+    <text x="530" y="293" font-family="sans-serif" font-size="10" fill="#64748b" font-weight="700">STATUS</text>
+
+    <!-- Row 1 -->
+    <circle cx="260" cy="330" r="10" fill="#dbeafe"/>
+    <text x="280" y="334" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="600">Sony Alpha A7 IV</text>
+    <text x="420" y="334" font-family="sans-serif" font-size="11" fill="#475569">Optima Studio</text>
+    <rect x="530" y="322" width="65" height="20" rx="10" fill="#dcfce7"/>
+    <text x="542" y="336" font-family="sans-serif" font-size="9" fill="#15803d" font-weight="700">RENTED</text>
+    <line x1="235" y1="355" x2="705" y2="355" stroke="#f1f5f9"/>
+
+    <!-- Row 2 -->
+    <circle cx="260" cy="380" r="10" fill="#ede9fe"/>
+    <text x="280" y="384" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="600">DJI RS 3 Pro Gimbal</text>
+    <text x="420" y="384" font-family="sans-serif" font-size="11" fill="#475569">CinemaGear Pro</text>
+    <rect x="530" y="372" width="75" height="20" rx="10" fill="#e0f2fe"/>
+    <text x="540" y="386" font-family="sans-serif" font-size="9" fill="#0369a1" font-weight="700">AVAILABLE</text>
+    <line x1="235" y1="405" x2="705" y2="405" stroke="#f1f5f9"/>
+
+    <!-- Row 3 -->
+    <circle cx="260" cy="430" r="10" fill="#fef3c7"/>
+    <text x="280" y="434" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="600">Aputure 300d II Light</text>
+    <text x="420" y="434" font-family="sans-serif" font-size="11" fill="#475569">Lumos Rent</text>
+    <rect x="530" y="422" width="65" height="20" rx="10" fill="#dcfce7"/>
+    <text x="542" y="436" font-family="sans-serif" font-size="9" fill="#15803d" font-weight="700">RENTED</text>
+  </g>
+</svg>
+
