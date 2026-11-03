@@ -161,7 +161,7 @@ export default function ProjectDetailClient({
                   >
                     <Image
                       src={slide.image}
-                      alt={slide.title}
+                      alt={slide.title || `${project.title} showcase ${idx + 1}`}
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"
                       className="object-cover object-top sm:object-center group-hover:scale-[1.015] transition-transform duration-500 ease-out"
@@ -199,14 +199,23 @@ export default function ProjectDetailClient({
 
               {/* Bottom Overlay: Slide Info & Dot Indicators */}
               <div className="absolute bottom-0 inset-x-0 z-20 p-3.5 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-2.5 pointer-events-none">
-                {/* Slide Title / Caption */}
-                <div className="pointer-events-auto flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 text-white text-xs max-w-full truncate shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                  <span className="font-medium truncate">{slides[activeSlide]?.title}</span>
-                  <span className="text-slate-400 font-mono text-[11px] shrink-0">
-                    ({activeSlide + 1}/{slides.length})
-                  </span>
-                </div>
+                {/* Slide Counter / Caption */}
+                {slides[activeSlide]?.title ? (
+                  <div className="pointer-events-auto flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 text-white text-xs max-w-full truncate shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                    <span className="font-medium truncate">{slides[activeSlide]?.title}</span>
+                    <span className="text-slate-400 font-mono text-[11px] shrink-0">
+                      ({activeSlide + 1}/{slides.length})
+                    </span>
+                  </div>
+                ) : (
+                  <div className="pointer-events-auto flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 text-white text-xs shadow-sm font-mono text-[11px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                    <span>
+                      {activeSlide + 1} / {slides.length}
+                    </span>
+                  </div>
+                )}
 
                 {/* Indicator Dots */}
                 {slides.length > 1 && (

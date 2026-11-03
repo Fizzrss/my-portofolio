@@ -41,7 +41,7 @@ export interface SkillCategory {
 
 export interface ProjectGalleryItem {
   image: string;
-  title: string;
+  title?: string;
   caption?: string;
 }
 
@@ -200,21 +200,9 @@ export const portfolioData: {
       image: "/images/projects/rentalbase.png",
       fallbackImage: "/images/projects/rentalbase.svg",
       gallery: [
-        {
-          image: "/images/projects/rentalbase.png",
-          title: "RentalBase Platform & Booking Portal",
-          caption: "Primary rental interface with interactive catalog & filtering",
-        },
-        {
-          image: "/images/projects/rentalbase(1).png",
-          title: "Inventory & Operational Analytics",
-          caption: "Multi-tenant inventory distribution and fleet health dashboard",
-        },
-        {
-          image: "/images/projects/rentalbase(2).png",
-          title: "System Architecture & Booking Flow",
-          caption: "Data flow from customer order to asset inspection return",
-        },
+        { image: "/images/projects/rentalbase.png" },
+        { image: "/images/projects/rentalbase(1).png" },
+        { image: "/images/projects/rentalbase(2).png" },
       ],
       summary: "A web-based equipment rental management system designed to help rental businesses manage products, inventory, bookings, and rental transactions.",
       description: "RentalBase is a web-based equipment rental management system developed as part of a Project-Based Learning (PBL) project. The application uses a multi-tenant architecture to support multiple rental businesses within one platform. My responsibilities focus on backend development and database management, including implementing application features, managing data relationships, and preparing software testing documentation.",
@@ -257,21 +245,9 @@ export const portfolioData: {
       image: "/images/projects/buildmatch.png",
       fallbackImage: "/images/projects/buildmatch.svg",
       gallery: [
-        {
-          image: "/images/projects/buildmatch.png",
-          title: "Mobile App Marketplace Discovery",
-          caption: "Contractor and architect discovery with budget estimation",
-        },
-        {
-          image: "/images/projects/buildmatch(1).jpeg",
-          title: "Real-Time Consultation & Milestones",
-          caption: "Direct architect messaging and verified milestone tracking",
-        },
-        {
-          image: "/images/projects/buildmatch(2).jpeg",
-          title: "Matching System Architecture",
-          caption: "End-to-end client to contractor transaction pipeline",
-        },
+        { image: "/images/projects/buildmatch.png" },
+        { image: "/images/projects/buildmatch(1).jpeg" },
+        { image: "/images/projects/buildmatch(2).jpeg" },
       ],
       summary: "A mobile marketplace application designed to connect clients with architects and contractors for construction and design projects.",
       description: "BuildMatch is a mobile marketplace application developed as part of a Project-Based Learning (PBL) project. The application aims to connect clients with architects and contractors through a digital platform. My contributions included developing mobile application features using Flutter, managing backend data with Supabase, analyzing business processes, and designing system models.",
@@ -311,21 +287,9 @@ export const portfolioData: {
       image: "/images/projects/lab-se-polinema.jpeg",
       fallbackImage: "/images/projects/lab-se-polinema.svg",
       gallery: [
-        {
-          image: "/images/projects/lab-se-polinema.jpeg",
-          title: "Laboratory Profile Homepage",
-          caption: "Web portal for Software Engineering Laboratory at Polinema",
-        },
-        {
-          image: "/images/projects/lab-se-polinema(1).png",
-          title: "Research Directory & Asset Management",
-          caption: "Inventory loans, project listings, and academic publications",
-        },
-        {
-          image: "/images/projects/lab-se-polinema(2).jpeg",
-          title: "PHP Native MVC Architecture",
-          caption: "Model-View-Controller modular data flow and PostgreSQL schema",
-        },
+        { image: "/images/projects/lab-se-polinema.jpeg" },
+        { image: "/images/projects/lab-se-polinema(1).png" },
+        { image: "/images/projects/lab-se-polinema(2).jpeg" },
       ],
       summary: "A simple laboratory profile website developed as an early learning project to practice basic web development using PHP Native MVC and PostgreSQL.",
       description: "This project was my first experience developing a web application using the PHP Native MVC concept as part of a Project-Based Learning (PBL) course. At that time, I was still learning the fundamentals of web development, including how to structure application code, connect to a database, and implement basic website functionality. I also took part in coordinating the development process with my team. The website was developed and tested locally on a development environment and was not deployed to a public server.",
