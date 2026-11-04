@@ -60,9 +60,14 @@ export default function Contact() {
                 </div>
                 <div className="overflow-hidden">
                   <p className="text-xs font-mono text-slate-400">Email Address</p>
-                  <p className="text-sm sm:text-base font-semibold text-slate-900 truncate">
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.contacts.email}&su=Project%20Inquiry%20/%20Collaboration`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm sm:text-base font-semibold text-slate-900 hover:text-sky-600 transition-colors truncate block"
+                  >
                     {profile.contacts.email}
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -70,7 +75,7 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="p-2.5 rounded-xl bg-white border-2 border-slate-300 text-slate-700 hover:text-slate-900 hover:border-slate-900 transition-colors shadow-sm"
+                  className="p-2.5 rounded-xl bg-white border-2 border-slate-300 text-slate-700 hover:text-slate-900 hover:border-slate-900 transition-colors shadow-sm cursor-pointer"
                   title="Copy email to clipboard"
                   aria-label="Copy email address"
                 >
@@ -81,9 +86,12 @@ export default function Contact() {
                   )}
                 </button>
                 <a
-                  href={`mailto:${profile.contacts.email}`}
-                  className="p-2.5 rounded-xl bg-white border-2 border-slate-300 text-slate-800 hover:text-slate-950 hover:border-slate-900 transition-colors shadow-sm"
-                  title="Open mail client"
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.contacts.email}&su=Project%20Inquiry%20/%20Collaboration`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-xl bg-white border-2 border-slate-300 text-slate-800 hover:text-slate-950 hover:border-slate-900 transition-colors shadow-sm cursor-pointer"
+                  title="Buka langsung di Gmail"
+                  aria-label="Kirim email langsung via Gmail"
                 >
                   <ExternalLinkIcon className="w-4 h-4" />
                 </a>

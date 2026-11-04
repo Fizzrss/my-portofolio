@@ -26,9 +26,21 @@ export default function Home() {
       {/* Sticky & Stacking Hero Section */}
       <Hero />
 
-      {/* Stacking Glass Sheet (Main Content Sheet Menumpuk Satu Layar Penuh) */}
-      <div className="relative z-10 bg-white/4 backdrop-blur-2xl rounded-t-[2.5rem] sm:rounded-t-[4rem] border-t-2 border-white/90 shadow-[0_-25px_60px_rgba(15,23,42,0.08)] pb-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14">
+      {/* Stacking Content Sheet (Identik dengan Background Detail Project) */}
+      <div className="relative z-10 mt-[100vh] bg-slate-50 rounded-t-[2.5rem] sm:rounded-t-[4rem] border-t border-slate-200/90 shadow-[0_-25px_60px_rgba(15,23,42,0.18)] pb-0 overflow-hidden">
+        {/* Ambient Radial Gradient Background Accents (Identik dengan Detail Project) */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+          {/* Top Left Peach / Amber Glow */}
+          <div className="absolute -top-32 -left-32 w-96 sm:w-[36rem] h-96 sm:h-[36rem] rounded-full bg-gradient-to-br from-amber-200/50 via-rose-200/35 to-transparent blur-3xl opacity-70" />
+          {/* Top Right Sky Blue Glow */}
+          <div className="absolute -top-28 -right-28 w-96 sm:w-[40rem] h-96 sm:h-[40rem] rounded-full bg-gradient-to-bl from-sky-200/60 via-indigo-200/40 to-transparent blur-3xl opacity-80" />
+          {/* Center Lavender Glow */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] sm:w-[50rem] h-[30rem] sm:h-[50rem] rounded-full bg-gradient-to-tr from-purple-200/30 via-indigo-100/30 to-transparent blur-3xl opacity-60" />
+          {/* Lower Sky Glow for Projects & Experience */}
+          <div className="absolute top-2/3 -right-24 w-[36rem] h-[36rem] rounded-full bg-gradient-to-bl from-sky-200/50 via-indigo-200/30 to-transparent blur-3xl opacity-70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14">
           <About />
           <Projects />
           <Experience />

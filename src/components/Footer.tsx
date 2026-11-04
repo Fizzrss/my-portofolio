@@ -61,8 +61,11 @@ export default function Footer() {
               <WhatsappIcon className="w-4 h-4" />
             </a>
             <a
-              href={`mailto:${profile.contacts.email}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.contacts.email}&su=Project%20Inquiry%20/%20Collaboration`}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Email"
+              title="Kirim email via Gmail"
               className="p-2 rounded-xl bg-slate-50 border border-slate-200 text-rose-600 hover:text-rose-700 hover:bg-rose-50 transition-colors"
             >
               <MailIcon className="w-4 h-4" />

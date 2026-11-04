@@ -19,6 +19,8 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isScrolledPastHome, setIsScrolledPastHome] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const isAutoScrollingRef = React.useRef<boolean>(false);
+  const autoScrollTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +35,9 @@ export default function Navbar() {
       // Expand navbar ONLY when scrolled past Home towards About section
       const threshold = Math.max(aboutTop - 200, 320);
       setIsScrolledPastHome(scrollPosition >= threshold);
+
+      // If currently auto-scrolling via nav click, preserve user-selected active section
+      if (isAutoScrollingRef.current) return;
 
       // ScrollSpy: if scroll is near top, always active "home"
       if (scrollPosition < 180) {
@@ -59,14 +64,70 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Custom cinematic smooth scroll with organic easeInOutCubic curve
+  const smoothScrollTo = (targetPosition: number) => {
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    if (Math.abs(distance) < 5) return;
+
+    // Fluid duration based on distance (650ms - 950ms)
+    const duration = Math.min(Math.max(Math.abs(distance) * 0.55, 650), 950);
+
+    isAutoScrollingRef.current = true;
+    if (autoScrollTimeoutRef.current) clearTimeout(autoScrollTimeoutRef.current);
+    autoScrollTimeoutRef.current = setTimeout(() => {
+      isAutoScrollingRef.current = false;
+    }, duration + 60);
+
+    let startTime: number | null = null;
+    let isCancelled = false;
+
+    const cancelScroll = () => {
+      isCancelled = true;
+      isAutoScrollingRef.current = false;
+      cleanup();
+    };
+
+    const cleanup = () => {
+      window.removeEventListener("wheel", cancelScroll);
+      window.removeEventListener("touchmove", cancelScroll);
+    };
+
+    window.addEventListener("wheel", cancelScroll, { passive: true, once: true });
+    window.addEventListener("touchmove", cancelScroll, { passive: true, once: true });
+
+    // Smooth cubic bezier easing
+    const easeInOutCubic = (t: number) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const step = (currentTime: number) => {
+      if (isCancelled) return;
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        cleanup();
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
   // Smooth scroll handler with reliable getBoundingClientRect
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    setActiveSection(id);
 
     if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      setActiveSection("home");
+      smoothScrollTo(0);
       return;
     }
 
@@ -74,21 +135,18 @@ export default function Navbar() {
     if (!target) return;
 
     const targetTop = target.getBoundingClientRect().top + window.scrollY;
-    const navOffset = isScrolledPastHome ? 75 : 90;
+    const navOffset = 75;
 
-    window.scrollTo({
-      top: Math.max(0, targetTop - navOffset),
-      behavior: "smooth",
-    });
+    smoothScrollTo(Math.max(0, targetTop - navOffset));
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 pointer-events-none flex justify-center transition-all duration-500">
+    <header className="fixed top-0 inset-x-0 z-50 pointer-events-none flex justify-center">
       <div
-        className={`pointer-events-auto transition-all duration-500 ease-out flex items-center justify-between gap-3 sm:gap-6 ${
+        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 rounded-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[width,padding,background-color] ${
           isScrolledPastHome
-            ? "w-full max-w-full mt-0 rounded-none border-b border-slate-200/80 bg-white/95 backdrop-blur-xl px-4 sm:px-8 lg:px-12 py-3.5 shadow-sm"
-            : "w-[94%] sm:w-[90%] md:w-auto md:min-w-[700px] lg:min-w-[820px] max-w-4xl mt-4 sm:mt-5 px-4 sm:px-6 py-2.5 rounded-full border border-white/90 bg-white/85 backdrop-blur-2xl shadow-xl shadow-slate-300/40 ring-1 ring-slate-200/80"
+            ? "w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] lg:w-[calc(100%-3rem)] mt-3 sm:mt-4 px-5 sm:px-8 py-2.5 border border-slate-200/90 bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 ring-1 ring-slate-200/70"
+            : "w-[94%] sm:w-[88%] md:w-[720px] lg:w-[820px] mt-4 sm:mt-5 px-4 sm:px-6 py-2.5 border border-white/90 bg-white/85 backdrop-blur-2xl shadow-xl shadow-slate-300/40 ring-1 ring-slate-200/80"
         }`}
       >
         {/* Brand / Logo */}
@@ -119,7 +177,7 @@ export default function Navbar() {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => scrollToSection(e, item.id)}
-                className={`relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 ${
+                className={`relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 active:scale-95 cursor-pointer ${
                   isActive
                     ? "text-white font-semibold bg-blue-500/80 shadow-sm shadow-slate-200/80"
                     : "text-slate-600 hover:text-sky-600 hover:bg-white/50"
